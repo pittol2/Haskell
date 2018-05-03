@@ -1,0 +1,111 @@
+a) mod 17 3
+i)o resto da divisão de 17 por 3
+ii)mod (arg1,arg2)
+iii)não há erro
+
+b) mod 15 2 == 0
+i)Avalia se o resto da divisão de 15 por 2 é 0 (se 15 é divisível por 2)
+ii)	mod(arg1,arg2) = z
+	z == 0 ?
+	resp
+iii)não há erro
+
+c) div 15 2 + mod 15 2 * 7
+i)A parte inteira da divsão de 15 por 2 adicionado ao resto da divisao de 15 por 2 multiplicado por 7
+ii)	div(15,2) = x ; mod(15,2)*7 = y
+	z = x+y
+iii)não há erro
+
+d)abs 2
+i) retorna o valor positivo
+ii)abs(x) = x se x>0 ; abs(x) = -x se x<0 ;
+iii) não há erro
+ 
+e) 15 / 2 * 3^2.4 + abs (-4)
+i)Calcularia 3 elevado à 2.4, multiplica por 15, divide por 2 e soma o módulo de 4
+ii)	x = 3^(2.4)
+	abs(-4) = 4
+	y = 15/2*x+ 4
+iii)erro: potência de número real
+iv)15 / 2 * 3**2.4 + abs (-4)
+
+f)sqrt( 5*5 - 4 * 3 * 6) / ( 2 * 3)
+i)encontra a raíz do primeiro argumento e divide pelo segundo.
+ii)sqrt(argumento<0) não encontra valor definido.
+iii)erro: raíz de número negativo
+iv)sqrt( abs(5*5 - 4 * 3 * 6)) / ( 2 * 3)
+
+g)pi * 3.5 * 3.5
+i) multiplica por 3.5 duas vezes
+ii) não há avaliação de precedência
+ii) não há erro
+
+h)pi * 3.5^2
+i) multiplica pelo quadrado de 3.5
+ii) 	x = 3.5^2
+	pi*x
+ii) não há erro
+
+i)sin 3*pi/2
+i) calcula no seno de 3 depois multiplica por PI/2
+ii)	x = sin 3
+	y = x*PI/2
+iii)não há erro
+
+j)signum abs (-4)
+iii)erro:  função (signum) recebe função (abs) como argumento
+iv)signum (abs (-4))
+
+k) div 4 2 + 3 * 5/7
+iii) erro: [div 4 2] é inteiro e não pode ser somado a [3*5/7] que é float. 
+iv)4/2 + 3 * 5/7
+
+l)sqrt 3*4
+i) Calcula a raíz quadrada de 3 e depois multiplica o valor por 4
+ii)	x = 3^(1/2)
+	y = x*4
+iii)não há erro
+
+m)sqrt(3*4)
+i) Calcula a raíz quadrada de 3*4 (raíz de 12)
+ii)	x = 3*4
+	y = 12^(1/2)
+iii)não há erro
+
+n)signum(2^3 -10 + 40)
+i)indica o sinal do número, 1 se positivo e -1 se negativo
+ii) calcula 2 ao cubo, subtrai 10, soma 40 e verifica o sinal do resultado
+iii)não há erro
+
+o)-7 + 2
+i)Caucula a soma
+ii)Primeiro faz 7 negativo e depois soma 2
+iii)não há erro
+
+p)5 + 4 + 6 + 8 + 20.4
+i)Realiza a soma dos números
+ii) a ordem das operações é da esquerda para a direita (nesse caso a ordem não afeta o resultado)
+iii)não há erro
+
+q)div 5 2 + 3
+i) retorna o inteiro do resultado da divisão de 5 por 2 e soma 3
+ii)retorna o inteiro do resultado da divisão de 5 por 2 e soma 3
+iii)não há erro
+
+r)mod 18 5 + 3.5
+iii)erro: [mod 18 5] é inteiro e não pode ser somado a [3.5] que é float. 
+iv)18 - 3*5 + 3.5
+
+s)sqrt abs -4
+iii)erro: função (sqrt) recebe função (abs) como argumento
+iv)sqrt (abs -4)
+
+t) 24/4
+i)divide 24 por 4 e resulta em float
+iii)não há erro
+
+u) div 24 4
+i)divide 24 por 4 e resulta em inteiro
+iii) não há erro
+
+

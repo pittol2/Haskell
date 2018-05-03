@@ -1,0 +1,85 @@
+a) 	3>5 || 4+1 < 8
+ii) 	3>5 || 5 < 8
+	TRUE || 5 < 8
+	TRUE || TRUE
+	TRUE
+iii) não há erro
+
+b) 	not(3>1) && not(4-2>6)
+ii)	not(3>1) && not(2>6)
+	not(TRUE) && not(2>6)
+	FALSE && not(2>6)
+	FALSE && not(FALSE)
+	FALSE && TRUE
+	FALSE
+iii) não há erro
+
+c)	 not(3>1 || 4-2 > 6)
+ii)	not(3>1 || 2 > 6)
+	not(TRUE || 2 > 6)
+	not(TRUE || FALSE)
+	not(TRUE)
+	FALSE
+iii) não há erro
+
+d)	-5 < 7 && 2 >=2 && 10+4>8
+ii)	(-5) < 7 && 2 >=2 && 10+4>8
+	(-5) < 7 && 2 >=2 && 14>8
+	TRUE && 2 >=2 && 14>8
+	TRUE && TRUE && 14>8
+	TRUE && TRUE && TRUE
+	TRUE && TRUE
+	TRUE	
+iii) não há erro
+
+e)	 8>8 || True
+ii)	 FALSE || True
+	TRUE
+iii) não há erro
+
+f)	False && 7 == 7
+ii)	False && TRUE
+	FALSE
+iii) não há erro
+
+g) not (7=7)
+iii) O operador de igualdade deve ser "==" ao invés de "="
+ii)	not (7==7)
+	not (TRUE)
+	FALSE
+
+h) False && 7 = 7
+iii) O operador de igualdade deve ser "==" ao invés de "="
+ii) 	False && 7 == 7
+	False && TRUE
+	FALSE
+
+i) (-5>-3 || 2-1<0) && (3>1)
+iii) O operador "-" em "-3" deve ser encapsulado em parenteses quando precedido por operador relacional, de modo a ficar "(-3)"
+ii)	(-5>(-3) || 2-1<0) && (3>1)
+	((-5)>(-3) || 2-1<0) && (3>1)
+	((-5)>(-3) || 1<0) && (3>1)
+	(FALSE || 1<0) && (3>1)
+	(FALSE || FALSE) && (3>1)
+	(FALSE || FALSE) && (TRUE)
+	FALSE && TRUE
+	FALSE
+
+j) 	-5 > -3 || 2 -1 < 0 && 3>1
+ii)	(-5) > -3 || 2 -1 < 0 && 3>1
+	(-5) > (-3) || 2 -1 < 0 && 3>1
+	(-5) > (-3) || 1 < 0 && 3>1
+	FALSE || 1 < 0 && 3>1
+	FALSE || FALSE && 3>1
+	FALSE || FALSE && TRUE
+	FALSE || FALSE
+	FALSE
+iii) não há erro
+
+k) 5 == 0 || not 5 == 0
+iii) O operador "not" avalia expressões lógicas e tem prioridade igual a das funções primitivas; portanto, o termo seguinte deve estar entre parenteses.
+ii)	5 == 0 || not (5 == 0)
+	5 == 0 || not(FALSE)
+	5 == 0 || TRUE
+	FALSE || TRUE
+	TRUE
