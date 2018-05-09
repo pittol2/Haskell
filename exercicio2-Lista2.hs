@@ -31,3 +31,21 @@ lf a b c = if a == b && b == c
                             then 2
                     else 1
 
+lg xse yse xid yid = if xse*xid > 0 && yse*yid > 0
+                                                then 1 else
+                                         if xse*xid < 0 && yse*yid < 0
+                                               then 4 else 2
+
+lhi n x y = x <= n && y <= n
+
+lhii n m x y = 
+
+li a b c = if a > b && a > c 
+                          then a else
+                  if b > c then b
+                          else c
+
+lj a b c = succ (li a b c + 1)
+
+lk
+ 
