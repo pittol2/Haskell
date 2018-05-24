@@ -32,6 +32,7 @@ type Dist = (((Ponto, Ponto),Float),((Ponto, Ponto),Float),((Ponto, Ponto), Floa
 n2 :: Ponto -> Ponto -> Ponto -> Dist
 n2 p1 p2 p3 = (((p1,p2), dist p1 p2),((p2,p3), dist p2 p3),((p1,p3), dist p1 p3))
 
+dist :: Ponto -> Ponto -> Float
 dist pa pb = sqrt((fst pb - fst pa)^2 + (snd pb - snd pa)^2)
 
 n3 a b c = if delta < 0 then (False, (0,0))
@@ -49,12 +50,52 @@ n4i (a,b,c) = if (a,b,c) == (a,a,a) || (a,b,c) == (b,b,b) || (a,b,c) == (c,c,c)
                          else 'C'
 
 n4ii :: Ponto -> Ponto -> Int
-n4ii pse pid = if quad pse pdi == (True,True)
+n4ii pse pid = if quad pse pid == (True,True)
                     then 1
-                    else if quad pse pdi == (False,True)
-                         then 2
-                         else if quad pse pdi == (False, False)
+                    else if quad pse pid == (False, False)
+                           then 4
+                           else   2
 
-n4ii :: Ponto -> Ponto -> (Bool,Bool)
+quad :: Ponto -> Ponto -> (Bool,Bool)
 quad p1 p2 = (signum (fst p1) == signum (fst p2), signum (snd p1) == signum (snd p2))
+
+n5 p a  | imc < 17.00 = txt ++ show (imc) ++ " - Muito abaixo do peso" 
+        | imc < 18.49 = txt ++ show (imc) ++ " - Abaixo do peso" 
+        | imc < 24.99 = txt ++ show (imc) ++ " - Peso normal" 
+        | imc < 29.99 = txt ++ show (imc) ++ " - Acima do peso" 
+        | imc < 34.99 = txt ++ show (imc) ++ " - Obesidade "
+        | imc < 39.99 = txt ++ show (imc) ++ " - Obesidade severa"
+        | otherwise = txt ++ show (imc) ++ " - Obesidade morbida" 
+            where
+                   imc = p / a^2 
+                   txt = "O seu imc eh: "
+
+n6 s | s <= 500.00 = 0.00*s
+     | s <= 1500.00 = 0.10*s
+     | s <= 2500.00 = 0.15*s
+     | otherwise = 0.25*s
+
+n7 p1 p2 p3 | dist p1 p2 == dist p2 p3 && dist p1 p2 == dist p1 p3 = "Equilatero"
+            | dist p1 p2 == dist p2 p3 || dist p1 p2 == dist p1 p3 || dist p2 p3 == dist p1 p3 = "Isosceles"
+            | otherwise  = "Escaleno"
+
+n7alt p1 p2 p3 | l1 == l2 && l1 == l3 = "Equilatero"
+               | l1 == l2 || l1 == l3 || l2 == l3 = "Isosceles"
+               | otherwise  = "Escaleno"
+        where
+                l1 = dist p1 p2
+                l2 = dist p2 p3
+                l3 = dist p1 p3
+
+type Data = (Int, Int, Int)
+
+n8 :: Data -> Data -> String
+n8 dn da = "Sua idade eh: " ++ show(a) ++ " anos, " ++ show(m) ++ " meses e " ++ show(d) ++ " dias."
+               where
+                       a = trd da - trd dn
+                       m = snd da - snd dn
+                       d = fst da - fst dn
+
+trd (x, y, z) = z 
+
 
