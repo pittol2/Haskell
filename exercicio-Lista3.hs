@@ -91,15 +91,15 @@ type Data = (Int, Int, Int)
 
 n8 :: Data -> Data -> String
 n8 dn da = if a<0 
-	   then "Volte para o Futuro!"
-	   else if m>0 
-	        then if d>0 
-	             then "Sua idade eh: " ++ show(a) ++ " anos, " ++ show(m) ++ " meses e " ++ show(d) ++ " dias."
-	  	     else "Sua idade eh: " ++ show(a) ++ " anos, " ++ show(m-1) ++ " meses e " ++ show(30+d) ++ " dias."
-	        else if d>0 
-	  	     then "Sua idade eh: " ++ show(a-1) ++ " anos, " ++ show(12+m) ++ " meses e " ++ show(d) ++ " dias."
-	   else "Sua idade eh: " ++ show(a-1) ++ " anos, " ++ show(12+m-1) ++ " meses e " ++ show(30+d) ++ " dias."
-		where
+           then "Volte para o Futuro!"
+           else if m>0 
+                then if d>0 
+                     then "Sua idade eh: " ++ show(a) ++ " anos, " ++ show(m) ++ " meses e " ++ show(d) ++ " dias."
+                     else "Sua idade eh: " ++ show(a) ++ " anos, " ++ show(m-1) ++ " meses e " ++ show(30+d) ++ " dias."
+                else if d>0 
+                     then "Sua idade eh: " ++ show(a-1) ++ " anos, " ++ show(12+m) ++ " meses e " ++ show(d) ++ " dias."
+           else "Sua idade eh: " ++ show(a-1) ++ " anos, " ++ show(12+m-1) ++ " meses e " ++ show(30+d) ++ " dias."
+                 where
                        a = trd3 da - trd3 dn
                        m = snd3 da - snd3 dn
                        d = fst3 da - fst3 dn
@@ -107,6 +107,48 @@ n8 dn da = if a<0
 fst3 (x, y, z) = x
 snd3 (x, y, z) = y
 trd3 (x, y, z) = z 
+
+n8alt :: Data -> Data -> String
+
+n8alt dn da | a<0        = "Volte para o Futuro!"
+            | m>0 && d>0 = "Sua idade eh: " ++ show(a) ++ " anos, " ++ show(m) ++ " meses e " ++ show(d) ++ " dias."
+            | m>0 && d<0 = "Sua idade eh: " ++ show(a) ++ " anos, " ++ show(m-1) ++ " meses e " ++ show(30+d) ++ " dias."
+            | d>0        = "Sua idade eh: " ++ show(a-1) ++ " anos, " ++ show(12+m) ++ " meses e " ++ show(d) ++ " dias."
+            | otherwise  = "Sua idade eh: " ++ show(a-1) ++ " anos, " ++ show(12+m-1) ++ " meses e " ++ show(30+d) ++ " dias."
+                where
+                       a = trd3 da - trd3 dn
+                       m = snd3 da - snd3 dn
+                       d = fst3 da - fst3 dn
+
+
+n9 :: Ponto -> Char
+
+n9 pos = if not(valida pos) 
+         then '0'
+         else if fst pos == 1
+              then 'D'
+              else if fst pos == 8
+                   then 'E'
+              else 'N'
+
+valida pos = 1 <= x && x <= 8 && 1 <= y && y <= 8
+       where
+           x = fst pos
+           y = snd pos
+
+n10 :: Float -> String -> Float
+
+n10 id pl | pl == "Terra"    = idT * 1.0
+          | pl == "Mercurio" = idT * 0.2408467
+          | pl == "Venus"    = idT * 0.61519826
+          | pl == "Marte"    = idT * 1.8808158
+          | pl == "Jupiter"  = idT * 11.862615
+          | pl == "Saturno"  = idT * 29.447498
+          | pl == "Urano"    = idT * 84.016846
+          | pl == "Netuno"   = idT * 164.79132
+      where
+              idT  = id / orbT
+              orbT = 31557600 
 
 
 
