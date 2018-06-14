@@ -90,12 +90,23 @@ n7alt p1 p2 p3 | l1 == l2 && l1 == l3 = "Equilatero"
 type Data = (Int, Int, Int)
 
 n8 :: Data -> Data -> String
-n8 dn da = "Sua idade eh: " ++ show(a) ++ " anos, " ++ show(m) ++ " meses e " ++ show(d) ++ " dias."
-               where
-                       a = trd da - trd dn
-                       m = snd da - snd dn
-                       d = fst da - fst dn
+n8 dn da = if a<0 
+	   then "Volte para o Futuro!"
+	   else if m>0 
+	        then if d>0 
+	             then "Sua idade eh: " ++ show(a) ++ " anos, " ++ show(m) ++ " meses e " ++ show(d) ++ " dias."
+	  	     else "Sua idade eh: " ++ show(a) ++ " anos, " ++ show(m-1) ++ " meses e " ++ show(30+d) ++ " dias."
+	        else if d>0 
+	  	     then "Sua idade eh: " ++ show(a-1) ++ " anos, " ++ show(12+m) ++ " meses e " ++ show(d) ++ " dias."
+	   else "Sua idade eh: " ++ show(a-1) ++ " anos, " ++ show(12+m-1) ++ " meses e " ++ show(30+d) ++ " dias."
+		where
+                       a = trd3 da - trd3 dn
+                       m = snd3 da - snd3 dn
+                       d = fst3 da - fst3 dn
 
-trd (x, y, z) = z 
+fst3 (x, y, z) = x
+snd3 (x, y, z) = y
+trd3 (x, y, z) = z 
+
 
 
